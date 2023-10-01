@@ -63,7 +63,7 @@ Como la suma es el resultado de una disyunción exclusiva entre las entradas, la
 
 ![RTL Semisumador](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/RTL_semisumador.png) 
 
-
+Por último, en digital guardamos el semisumador en un archivo .dig en la msma carteta donde se creará el sumador.
 
 ## Implementación de un sumador completo
 
