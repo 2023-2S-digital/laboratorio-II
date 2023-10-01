@@ -20,7 +20,15 @@ Para implementar un medio sumador, se utilizó la siguiente tabla de verdad:
 | 1             | 0             | 0            | 1            |
 | 1             | 1             | 1            | 0            |
 
-Donde se observa, que para la la salida de suma, la tabla de verdad da como resultado una una disyunción exclusiva y para la salida acarreo, se observa una conjunción como función lógica. 
+S observa, que para la la salida de suma, la tabla de verdad da como resultado una una disyunción exclusiva y para la salida acarreo una conjunción como función lógica. 
+
+Desde Digital podemos contruir el Semisumador a partir la tabla de verdad, desde la sección, "Análisis" y luego en "Sintetizar".
+
+![Tabla de verdad](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/Sintetizar.png)
+
+Luego, ajustamos las entradas como A y B y las salidas como Cout y Suma, tal como se visualiza en la siguiente imagen:
+
+![Tabla de verdad](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/T_V_SS.png)
 
 ### Mapa de Karnaugh
 Para determinar la mínima expresión de la función lógica de las salidas acarreo y suma se realiza el mapa de karnaugh, dando como resultado los siguientes mapas de Karnaugh:
@@ -32,6 +40,10 @@ Mapa Karnaugh Suma:
 Mapa Karnaugh Cout: 
 
 ![Mapa Karnaugh Cout](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/Mapa%20K%20Cout.png)
+
+En Digital, desde la tabla de verdad, en la barra superior, aparece la opción para generar los mapas de Karnaugh de las salidas desde la opción "Mapa de Karnaugh" o dando clic "F1".
+
+![Mapa de Karnaugh Digital](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/M_Karnaugh.png)
 
 ### Ecuaciones lógicas
 
