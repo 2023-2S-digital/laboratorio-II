@@ -25,26 +25,31 @@ Donde se observa, que para la la salida de suma, la tabla de verdad da como resu
 ### Mapa de Karnaugh
 Para determinar la mínima expresión de la función lógica de las salidas acarreo y suma se realiza el mapa de karnaugh, dando como resultado los siguientes mapas de Karnaugh:
 
-![Mapa Karnaugh Suma.png](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/Mapa%20K%20Suma.png)
+Mapa Karnaugh Suma:
 
+![Mapa Karnaugh Suma](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/Mapa%20K%20Suma.png)
 
+Mapa Karnaugh Cout: 
 
+![Mapa Karnaugh Cout](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/Mapa%20K%20Cout.png)
 
 ### Ecuaciones lógicas
 
-Y las siguientes ecuaciones lógicas:
+Al observar los mapas de Karnaugh de Cout y suma podemos determinar las ecuaciones lógicas de las salidas:
 
 ```
-S = !A.B + A.!B = A ⊕ B
+Suma = !A*B + A*!B = A ⊕ B
 ```
-
 ```
-C = A.B
+Cout = A*B
 ```
+Teniendo las ecuaciones lógicas, podemos determinar el circuito equivalente.
 
 ### Esquema de conexiones (RTL)
 
-Y el siguiente esquema de conexiones:
+Como la suma es el resultado de una disyunción exclusiva entre las entradas, la puerta equivalente es un XOR y para el Cout o carrier de salida se obtiene a partir de una conjuncion de las entradas, la puerta equivalente es un AND. Cada puerta lógica es de dos entradas (A, B) y una salida.
+
+![RTL Semisumador](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/RTL_semisumador.png)
 
 
 
