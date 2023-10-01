@@ -23,8 +23,12 @@ Para implementar un medio sumador, se utilizó la siguiente tabla de verdad:
 Donde se observa, que para la la salida de suma, la tabla de verdad da como resultado una una disyunción exclusiva y para la salida acarreo, se observa una conjunción como función lógica. 
 
 ### Mapa de Karnaugh
+Para determinar la mínima expresión de la función lógica de las salidas acarreo y suma se realiza el mapa de karnaugh, dando como resultado los siguientes mapas de Karnaugh:
 
-Dando como resultado el siguiente mapa de Karnaugh:
+![Mapa de karnaugh Suma](images/Mapa K Suma.png "Mapa de karnaugh Suma")
+
+
+
 
 ### Ecuaciones lógicas
 
