@@ -49,7 +49,7 @@ Teniendo las ecuaciones lógicas, podemos determinar el circuito equivalente.
 
 Como la suma es el resultado de una disyunción exclusiva entre las entradas, la puerta equivalente es un XOR y para el Cout o carrier de salida se obtiene a partir de una conjuncion de las entradas, la puerta equivalente es un AND. Cada puerta lógica es de dos entradas (A, B) y una salida.
 
-![RTL Semisumador](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/RTL_semisumador.png)
+![RTL Semisumador](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/RTL_semisumador.png) 
 
 
 
