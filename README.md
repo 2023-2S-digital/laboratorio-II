@@ -6,7 +6,7 @@ En principio y con la idea/meta de reutilizar componentes ya implementados, se c
 
 ## Diseño e Implementación de un medio sumador
 
-Un circuito medio sumador es un circuito lógico que realiza la suma de dos entredas de un bit y devuelve el resultado en dos salidas, un bit de suma y un bit de acarreo. 
+Un circuito medio sumador es un circuito lógico que realiza la suma de dos entredas de un bit y devuelve el resultado en dos salidas, un bit de suma y un bit de acarreo.  
 
 El circuito tiene dos entradas y dos salidas. 
 
