@@ -79,15 +79,15 @@ y el acarreo de salida.
 
 Para implementar un sumador completo, se utilizó la siguiente tabla de verdad:
 
-| **Input (A)** | **Input (B)** | **Cin (Ci)** | **Suma (S)** | **Cout (Co)** |
+| **Input (A)** | **Input (B)** | **Cin (Ci)** | **Cout (Co)**| **Suma (S)**  |
 |---------------|---------------|--------------|--------------|---------------|
 | 0             | 0             | 0            | 0            | 0             |
-| 0             | 0             | 1            | 1            | 0             |
-| 0             | 1             | 0            | 1            | 0             |
-| 0             | 1             | 1            | 0            | 1             |
-| 1             | 0             | 0            | 1            | 0             |
-| 1             | 0             | 1            | 0            | 1             |
-| 1             | 1             | 0            | 0            | 1             |
+| 0             | 0             | 1            | 0            | 1             |
+| 0             | 1             | 0            | 0            | 1             |
+| 0             | 1             | 1            | 1            | 0             |
+| 1             | 0             | 0            | 0            | 1             |
+| 1             | 0             | 1            | 1            | 0             |
+| 1             | 1             | 0            | 1            | 0             |
 | 1             | 1             | 1            | 1            | 1             |
 
 ### Mapa de Karnaugh
