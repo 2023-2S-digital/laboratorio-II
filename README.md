@@ -8,21 +8,19 @@ En principio y con la idea/meta de reutilizar componentes ya implementados, se c
 
 Un circuito medio sumador es un circuito lógico que realiza la suma de dos entredas de un bit y devuelve el resultado en dos salidas, un bit de suma y un bit de acarreo.  
 
-El circuito tiene dos entradas y dos salidas. 
-
-Las entradas representan los dos bits a sumar y las salidas representan el resultado de la suma y el acarreo.
-
 ### Tabla de verdad
 
 Para implementar un medio sumador, se utilizó la siguiente tabla de verdad:
 
 | Entradas      |               | Salidas      |              |
 |---------------|---------------|--------------|--------------|
-| **Input (A)** | **Input (B)** | **Suma (S)** | **Cout (C)** |
+| **Input (A)** | **Input (B)** | **Cout (C)** | **Suma (S)** |
 | 0             | 0             | 0            | 0            |
-| 0             | 1             | 1            | 0            |
-| 1             | 0             | 1            | 0            |
-| 1             | 1             | 0            | 1            |
+| 0             | 1             | 0            | 1            |
+| 1             | 0             | 0            | 1            |
+| 1             | 1             | 1            | 0            |
+
+Donde se observa, que para la la salida de suma, la tabla de verdad da como resultado una una disyunción exclusiva y para la salida acarreo, se observa una conjunción como función lógica. 
 
 ### Mapa de Karnaugh
 
