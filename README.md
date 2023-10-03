@@ -67,10 +67,7 @@ Por último, en digital guardamos el semisumador en un archivo .dig en la msma c
 
 ## Implementación de un sumador completo
 
-Un sumador completo es un circuito lógico que realiza la suma de dos bits y un acarreo de entrada y devuelve el 
-resultado en dos salidas.
-
-El circuito tiene tres entradas y dos salidas.
+Un sumador completo es un circuito lógico que realiza la suma de dos entradas y un acarreo de entrada, cada una de un bit, generando dos salidas, una salida de suma y otra de acarreo.
 
 Las entradas representan los dos bits a sumar y el acarreo de entrada y las salidas representan el resultado de la suma 
 y el acarreo de salida.
@@ -92,27 +89,44 @@ Para implementar un sumador completo, se utilizó la siguiente tabla de verdad:
 
 ### Mapa de Karnaugh
 
-Dando como resultado el siguiente mapa de Karnaugh:
+Desde Digital podemos generar el mapa de Karnaugh a partr de la tabla de verdad:
+
+Mapa Karnaugh Cout:
+
+![](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/MK_sumador_Cout.png)
+
+
+Mapa Karnaugh Suma:
+
+![](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/MK_sumador_S.png)
+
 
 ### Ecuaciones lógicas
 
-Y las siguientes ecuaciones lógicas:
+Las siguientes ecuaciones lógicas:
 
 ```
-S = !A.!B.Ci + !A.B.!Ci + A.!B.!Ci + A.B.Ci
+S = !A*!B*Ci + !A*B*!Ci + A*!B*!Ci + A*B*Ci
 
 S = A ⊕ (B ⊕ Ci)
 ```
 
 ```
-Co = !A.B.Ci + A.!B.Ci + A.B.!Ci + A.B.Ci
+Co = !A*B*Ci + A*!B*Ci + A*B*!Ci + A*B*Ci
 
-Co = Ci.(A ⊕ B) + A.B
+Co = Ci*(A ⊕ B) + A*B
 ```
 
 ### Esquema de conexiones (RTL)
 
-Y el siguiente esquema de conexiones:
+De acuerdo a las ecuaciones lógicas que relacionan las entredas con cada una de las salidas, se realiza el esquema de conexiones del sumador, en este caso se requieren dos puertas AND, dos puertas XOR y una puerta OR, como se visualiza en el siguiente esquema realizado en Digital.
+![](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/Sumador_1.png)
+
+Teniendo en cuenta que el sumador se construye a partir de dos semisumadores y una puerta OR, se genera el encapsulado del semisumador,de esta manera se establece el RTL de manera compacta.
+
+Como se puede visualizar en el esquemático generado en Digital.
+
+![](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/Sumador.png)
 
 ## Implementación de complemento a 2
 
