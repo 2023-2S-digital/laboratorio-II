@@ -160,7 +160,7 @@ Si el acarreo del sumador más significativo es es uno, el resultado no esta en 
 ## Implementación de complemento a 1
 Para generar el complemento a 2 del sustraendo (B), debemos tener un circuito inversor que realzará el proceso de efectuar el complemento a 1 de B, por lo tanto se utilizan 4 inversores, donde negaran cada bit de entrada.
 
-![](https://github.com/2023-2S-digital/laboratorio-II/blob/main/images/Inversor.png)
+![](images/Inversor.png)
 
 ## Implementación de complemento a 2
 
