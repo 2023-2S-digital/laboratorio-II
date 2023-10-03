@@ -128,6 +128,12 @@ Como se puede visualizar en el esquemático generado en Digital.
 
 ![](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/Sumador.png)
 
+## Sumador de 4 bits
+
+Con el encapsulado de del sumador, podemos generar el sumador de 4 bits, con 4 sumadores de un bit, donde el sumador  S0, que suma los bits menos significativos tiene como entradas A0, B0 y Cin se conecta a GND, luego el sumador S1 se conecta a la entrada A1, B1 y Cin se conecta al carrier Cout del sumador S0; para el sumador S2, se concecta a las enradas A2, B2 y Cin se conecta al carrier Cout del sumador S; por último, el sumador más significativo S3 se conecta a A3, B3 y Cin se conecta a una salida Carrier, como se visualiza en el esquematico de Digital.
+
+![](https://github.com/2023-2S-digital/laboratorio-II/blob/main/imagenes/Nibble.png)
+
 ## Implementación de complemento a 2
 
 Un complemento a 2 es un circuito lógico que realiza la operación de complemento a 2 de un número binario de 4 bits.
