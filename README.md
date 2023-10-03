@@ -164,28 +164,48 @@ a 2.
 
 Para implementar el complemento a 2, se utilizó la siguiente tabla de verdad:
 
-| **Input (A)** | **Input (B)** | **Input (C)** | **Input (D)** | **Output (A)** | **Output (B)** | **Output (C)** | **Output (D)** |
-|---------------|---------------|---------------|---------------|----------------|----------------|----------------|----------------|
-| 0             | 0             | 0             | 0             | 0              | 0              | 0              | 0              |
-| 0             | 0             | 0             | 1             | 1              | 1              | 1              | 1              |
-| 0             | 0             | 1             | 0             | 1              | 1              | 1              | 0              |
-| 0             | 0             | 1             | 1             | 1              | 1              | 0              | 1              |
-| 0             | 1             | 0             | 0             | 1              | 1              | 0              | 0              |
-| 0             | 1             | 0             | 1             | 1              | 0              | 1              | 1              |
-| 0             | 1             | 1             | 0             | 1              | 0              | 1              | 0              |
-| 0             | 1             | 1             | 1             | 1              | 0              | 0              | 1              |
-| 1             | 0             | 0             | 0             | 1              | 0              | 0              | 0              |
-| 1             | 0             | 0             | 1             | 0              | 1              | 1              | 1              |
-| 1             | 0             | 1             | 0             | 0              | 1              | 1              | 0              |
-| 1             | 0             | 1             | 1             | 0              | 1              | 0              | 1              |
-| 1             | 1             | 0             | 0             | 0              | 1              | 0              | 0              |
-| 1             | 1             | 0             | 1             | 0              | 0              | 1              | 1              |
-| 1             | 1             | 1             | 0             | 0              | 0              | 1              | 0              |
-| 1             | 1             | 1             | 1             | 0              | 0              | 0              | 1              |
+| **Input (A0)** | **Input (A1)** | **Input (A2)** | **Input (A3)** | **Output (S0)** | **Output (S1)** | **Output (S2)** | **Output (S3)** | **Output (Co)** |
+|----------------|----------------|----------------|----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+| 0              | 0              | 0              | 0              | 0               | 0               | 0               | 0               | 1               |
+| 0              | 0              | 0              | 1              | 0               | 0               | 0               | 1               | 0               |
+| 0              | 0              | 1              | 0              | 0               | 0               | 1               | 1               | 0               |
+| 0              | 0              | 1              | 1              | 0               | 0               | 1               | 0               | 0               |
+| 0              | 1              | 0              | 0              | 0               | 1               | 1               | 1               | 0               |
+| 0              | 1              | 0              | 1              | 0               | 1               | 1               | 0               | 0               |
+| 0              | 1              | 1              | 0              | 0               | 1               | 0               | 1               | 0               |
+| 0              | 1              | 1              | 1              | 0               | 1               | 0               | 0               | 0               |
+| 1              | 0              | 0              | 0              | 1               | 1               | 1               | 1               | 0               |
+| 1              | 0              | 0              | 1              | 1               | 1               | 1               | 0               | 0               |
+| 1              | 0              | 1              | 0              | 1               | 1               | 0               | 1               | 0               |
+| 1              | 0              | 1              | 1              | 1               | 1               | 0               | 0               | 0               |
+| 1              | 1              | 0              | 0              | 1               | 0               | 1               | 1               | 0               |
+| 1              | 1              | 0              | 1              | 1               | 0               | 1               | 0               | 0               |
+| 1              | 1              | 1              | 0              | 1               | 0               | 0               | 1               | 0               |
+| 1              | 1              | 1              | 1              | 1               | 0               | 0               | 0               | 0               |
 
 ### Mapa de Karnaugh
 
-Dando como resultado el siguiente mapa de Karnaugh:
+Dando como resultado los siguientes mapas de Karnaugh:
+
+**Mapa Karnaugh S0:**
+
+![Mapa Karnaugh S0](images/digital_c2_mapa_s0.png)
+
+**Mapa Karnaugh S1:**
+
+![Mapa Karnaugh S1](images/digital_c2_mapa_s1.png)
+
+**Mapa Karnaugh S2:**
+
+![Mapa Karnaugh S2](images/digital_c2_mapa_s2.png)
+
+**Mapa Karnaugh S3:**
+
+![Mapa Karnaugh S3](images/digital_c2_mapa_s3.png)
+
+**Mapa Karnaugh Co:**
+
+![Mapa Karnaugh Co](images/digital_c2_mapa_co.png)
 
 ### Ecuaciones lógicas
 
