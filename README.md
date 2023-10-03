@@ -143,13 +143,20 @@ Como se puede visualizar en el esquemático generado en Digital.
 
 ## Sumador de 4 bits
 
-Con el encapsulado de del sumador, podemos generar el sumador de 4 bits, con 4 sumadores de un bit, donde el sumador S0, 
+Con el encapsulado del sumador, podemos generar el sumador de 4 bits, con 4 sumadores de un bit, donde el sumador S0, 
 que suma los bits menos significativos tiene como entradas A0, B0 y Cin se conecta a GND, luego el sumador S1 se conecta 
 a la entrada A1, B1 y Cin se conecta al carrier Cout del sumador S0; para el sumador S2, se conecta a las entradas A2, 
 B2 y Cin se conecta al carrier Cout del sumador S; por último, el sumador más significativo S3 se conecta a A3, B3 y Cin 
 se conecta a una salida Carrier, como se visualiza en el esquemático de Digital.
 
 ![](images/digital_4bits_nibble.png)
+
+## Restador
+
+Para el restador de 4 bits, debemos deginir el minuendo y el sustraendo en el circuito, en este caso, se establece que la entrada A corresponde al minuendo y la entrada B al sustraendo, de esta manera para utilizar el sumador de 4 bits en la implementacón del restador, primero debemos realizar sobre la entrada B el complemento a 1, luego para generar el complemento a 2 en B se le suma uno al bit menos significativo. Teniendo la entrada A y el complemento a 2 de B, realizamos la operación de suma desde el sumador, y de esta manera tendremos la diferencia o resto. 
+
+Si el acarreo del sumador más significativo es es uno, el resultado no esta en complemento, pero si por el contrario esta en cero, el resultado de 4 bits, se encuentra en complemento a 2 al ser un valor negativo.
+
 
 ## Implementación de complemento a 2
 
