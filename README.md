@@ -157,15 +157,14 @@ Para el restador de 4 bits, debemos deginir el minuendo y el sustraendo en el ci
 
 Si el acarreo del sumador más significativo es es uno, el resultado no esta en complemento, pero si por el contrario esta en cero, el resultado de 4 bits, se encuentra en complemento a 2 al ser un valor negativo.
 
+## Implementación de complemento a 1
+Para generar el complemento a 2 del sustraendo (B), debemos tener un circuito inversor que realzará el proceso de efectuar el complemento a 1 de B, por lo tanto se utilizan 4 inversores, donde negaran cada bit de entrada.
+
+![](https://github.com/2023-2S-digital/laboratorio-II/blob/main/images/Inversor.png)
 
 ## Implementación de complemento a 2
 
-Un complemento a 2 es un circuito lógico que realiza la operación de complemento a 2 de un número binario de 4 bits.
-
-El circuito tiene cuatro entradas y cuatro salidas.
-
-Las entradas representan los cuatro bits del número binario y las salidas representan los cuatro bits del complemento 
-a 2.
+Teniendo el circuto inversor que genera el complemento a 1, podemos efectuar de el complemento a 2 de B con 4 semisumadores en cascada, donde se asignará a una de las entradas el valor de 1, en el semisumador menos significativo, donde cada acarreo Cout de los semisumadores se conectará a una de las entradas del semisumador más significativo, excepto el acarreo del semisumador más significativo, el cual no se conectará.
 
 ### Tabla de verdad
 
