@@ -15,7 +15,7 @@ Para implementar un medio sumador, se utilizó la siguiente tabla de verdad:
 
 | Entradas      |               | Salidas      |              |
 |---------------|---------------|--------------|--------------|
-| **Input (A)** | **Input (B)** | **Cout (C)** | **Suma (S)** |
+| **Input (A)** | **Input (B)** | **COut (C)** | **Suma (S)** |
 | 0             | 0             | 0            | 0            |
 | 0             | 1             | 0            | 1            |
 | 1             | 0             | 0            | 1            |
@@ -87,16 +87,16 @@ y el acarreo de salida.
 
 Para implementar un sumador completo, se utilizó la siguiente tabla de verdad:
 
-| **Input (A)** | **Input (B)** | **Cin (Ci)** | **Cout (Co)**| **Suma (S)**  |
-|---------------|---------------|--------------|--------------|---------------|
-| 0             | 0             | 0            | 0            | 0             |
-| 0             | 0             | 1            | 0            | 1             |
-| 0             | 1             | 0            | 0            | 1             |
-| 0             | 1             | 1            | 1            | 0             |
-| 1             | 0             | 0            | 0            | 1             |
-| 1             | 0             | 1            | 1            | 0             |
-| 1             | 1             | 0            | 1            | 0             |
-| 1             | 1             | 1            | 1            | 1             |
+| **Input (A)** | **Input (B)** | **CIn (Ci)** | **COut (Co)** | **Suma (S)**  |
+|---------------|---------------|--------------|---------------|---------------|
+| 0             | 0             | 0            | 0             | 0             |
+| 0             | 0             | 1            | 0             | 1             |
+| 0             | 1             | 0            | 0             | 1             |
+| 0             | 1             | 1            | 1             | 0             |
+| 1             | 0             | 0            | 0             | 1             |
+| 1             | 0             | 1            | 1             | 0             |
+| 1             | 1             | 0            | 1             | 0             |
+| 1             | 1             | 1            | 1             | 1             |
 
 ### Mapa de Karnaugh
 
@@ -115,15 +115,15 @@ Mapa Karnaugh Suma:
 Las siguientes ecuaciones lógicas:
 
 ```
-S = !A*!B*Ci + !A*B*!Ci + A*!B*!Ci + A*B*Ci
+Suma = !A*!B*CIn + !A*B*!CIn+ A*!B*!CIn + A*B*CIn
 
-S = A ⊕ (B ⊕ Ci)
+Suma = A ⊕ (B ⊕ CIn)
 ```
 
 ```
-Co = !A*B*Ci + A*!B*Ci + A*B*!Ci + A*B*Ci
+COut = !A*B*CIn + A*!B*CIn + A*B*!CIn + A*B*CIn
 
-Co = Ci*(A ⊕ B) + A*B
+COut = CIn * (A ⊕ B) + A*B
 ```
 
 ### Esquema de conexiones (RTL)
@@ -157,8 +157,8 @@ Un complemento a 2 es un circuito lógico que realiza la operación de complemen
 
 El circuito tiene cuatro entradas y cuatro salidas.
 
-Las entradas representan los cuatro bits del número binario y las salidas representan los cuatro bits del complemento a 
-2.
+Las entradas representan los cuatro bits del número binario y las salidas representan los cuatro bits del complemento 
+a 2.
 
 ### Tabla de verdad
 
