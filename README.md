@@ -151,14 +151,37 @@ se conecta a una salida Carrier, como se visualiza en el esquemático de Digital
 
 ![](images/digital_4bits_nibble.png)
 
+## Restador
+
+Para el restador de 4 bits, debemos definir el minuendo y el sustraendo en el circuito, en este caso, se establece que 
+la entrada A corresponde al minuendo y la entrada B al sustraendo, de esta manera para utilizar el sumador de 4 bits en 
+la implementación del restador, primero debemos realizar sobre la entrada B el complemento a 1, luego para generar el 
+complemento a 2 en B se le suma uno al bit menos significativo. Teniendo la entrada A y el complemento a 2 de B, 
+realizamos la operación de suma desde el sumador, y de esta manera tendremos la diferencia o resto. 
+
+Si el acarreo del sumador más significativo es uno, el resultado no está en complemento, pero si por el contrario, está 
+en cero, el resultado de 4 bits, se encuentra en complemento a 2 al ser un valor negativo.
+
+## Implementación de complemento a 1
+
+Para generar el complemento a 2 del sustraendo (B), debemos tener un circuito inversor que realzará el proceso de 
+efectuar el complemento a 1 de B, por lo tanto, se utilizan 4 inversores, donde negaran cada bit de entrada.
+
+![](images/Inversor.png)
+
 ## Implementación de complemento a 2
 
 Un complemento a 2 es un circuito lógico que realiza la operación de complemento a 2 de un número binario de 4 bits.
 
 El circuito tiene cuatro entradas y cuatro salidas.
 
-Las entradas representan los cuatro bits del número binario y las salidas representan los cuatro bits del complemento 
+Las entradas representan los cuatro bits del número binario y las salidas representan los cuatro bits del complemento
 a 2.
+
+Teniendo el circuito inversor que genera el complemento a 1, podemos efectuar el de complemento a 2 de B con 4 
+semisumadores en cascada, donde se asignará a una de las entradas el valor de 1, en el semisumador menos significativo, 
+donde cada acarreo Cout de los semisumadores se conectará a una de las entradas del semisumador más significativo, 
+excepto el acarreo del semisumador más significativo, el cual no se conectará.
 
 ### Tabla de verdad
 
