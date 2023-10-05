@@ -143,7 +143,7 @@ Como se puede visualizar en el esquemático generado en Digital.
 
 ## Sumador de 4 bits
 
-Con el encapsulado de del sumador, podemos generar el sumador de 4 bits, con 4 sumadores de un bit, donde el sumador S0, 
+Con el encapsulado del sumador, podemos generar el sumador de 4 bits, con 4 sumadores de un bit, donde el sumador S0, 
 que suma los bits menos significativos tiene como entradas A0, B0 y Cin se conecta a GND, luego el sumador S1 se conecta 
 a la entrada A1, B1 y Cin se conecta al carrier Cout del sumador S0; para el sumador S2, se conecta a las entradas A2, 
 B2 y Cin se conecta al carrier Cout del sumador S; por último, el sumador más significativo S3 se conecta a A3, B3 y Cin 
