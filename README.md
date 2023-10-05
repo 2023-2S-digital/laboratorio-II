@@ -56,10 +56,10 @@ salidas desde la opción "Mapa de Karnaugh" o dando clic "F1".
 Al observar los mapas de Karnaugh de Cout y suma podemos determinar las ecuaciones lógicas de las salidas:
 
 ```
-Suma = !A*B + A*!B = A ⊕ B
+Suma = (!A * B) + (A * !B) = A ⊕ B
 ```
 ```
-Cout = A*B
+Cout = A * B
 ```
 
 Teniendo las ecuaciones lógicas, podemos determinar el circuito equivalente.
@@ -115,15 +115,15 @@ Mapa Karnaugh Suma:
 Las siguientes ecuaciones lógicas:
 
 ```
-Suma = !A*!B*CIn + !A*B*!CIn+ A*!B*!CIn + A*B*CIn
+Suma = (!A * !B * CIn) + (!A * B * !CIn) + (A * !B * !CIn) + (A * B * CIn)
 
 Suma = A ⊕ (B ⊕ CIn)
 ```
 
 ```
-COut = !A*B*CIn + A*!B*CIn + A*B*!CIn + A*B*CIn
+COut = (!A * B * CIn) + (A * !B * CIn) + (A * B * !CIn) + (A * B * CIn)
 
-COut = CIn * (A ⊕ B) + A*B
+COut = CIn * (A ⊕ B) + A * B
 ```
 
 ### Esquema de conexiones (RTL)
@@ -216,6 +216,29 @@ Dando como resultado los siguientes mapas de Karnaugh:
 ### Ecuaciones lógicas
 
 Y las siguientes ecuaciones lógicas:
+
+```
+S0 = A0
+```
+
+```
+S1 = (!A0 * A1) + (A0 * !A1)
+
+S1 = A0 ⊕ A1
+
+```
+
+```
+S2 = (!A0 * !A1 * A2) + (A0 * !A2) + (A1 * !A2)
+```
+
+```
+S3 = (!A0 * !A1 * !A2 * A3) + (A0 * !A3) + (A1 * !A3) + (A2 * !A3)
+```
+
+```
+CO = (!A0 * !A1 * !A2 * !A3)
+``` 
 
 
 ## Implementación de un sumador/restador de 4 bits
