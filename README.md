@@ -187,9 +187,11 @@ Para poder determinar si la se entrega desde el sumador de 4 bits, o debe pasar 
 
 ![](images/Multiplexor_9-4.png)
 
-Este proceso presenta una restricción, cuando la entrada B es 0000 sin importar el valor de A, el acarreo de salida del sumador de 4 bits es 0, pero realmente debe ser 1, indicando que la salda S es no complementada, por eso, para corregir esta respuesta incorrecta, se utilizará un multiplexor 8-4
+Este proceso presenta una restricción, cuando la entrada B es 0000 sin importar el valor de A, el acarreo de salida del sumador de 4 bits es 0, pero realmente debe ser 1, indicando que la salida S es no complementada, por eso, para corregir esta respuesta incorrecta, primero se utilizará un multiplexor 8-4, que se conectará con las entradas A y B, donde B, dentro del multiplexor estará conectado a una puerta NOR, cuya salida de la puerta NOR actuará como señal de control; en este caso, si B es 0000, la salida del multiplexor conmutará con la entrada A, de lo contrario, no conmutará y su salida sera 0000.
 
 ![](images/Multiplexor_8-4.png)
+
+
 
 
 ## Implementación de complemento a 2
