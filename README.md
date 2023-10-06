@@ -87,7 +87,7 @@ Se corre este ejecutable para probar que pase todas las pruebas, esto con el com
 
 ```vvp Mediotop.vvp``` 
 
-Al hacer esto se crea el archivo -Mediotop.vcd- con el que se puede simular el funcionamiento del medio sumador.
+Al hacer esto se crea el archivo Mediotop.vcd con el que se puede simular el funcionamiento del medio sumador.
 
 ![GTK Semisumador](images/gtkwaveMedio.png)
 
@@ -158,6 +158,27 @@ del semisumador, de esta manera se establece el RTL de manera compacta.
 Como se puede visualizar en el esquemático generado en Digital.
 
 ![RTL Sumador encapsulado](images/digital_s_RTL_encapsulado.png)
+
+### Descripción en Verilog y testbench
+
+Apartir del esquemático y las ecuaciones lógicas se obtienen los archivo de verilog con la descripción en código del circuito y el testbench para el sumador completo.  
+
+### Simulación en GTKwave
+
+Para obtener el ejecutable SumadorCompleto.vvp se uso el siguiente comando: 
+
+```iverilog -o SumadorCompleto.vvp SumadorCompleto_tb.v SumadorCompleto.v``` 
+
+Se corre este ejecutable para probar que pase todas las pruebas, esto con el comando: 
+
+```vvp SumadorCompleto.vvp``` 
+
+Al hacer esto se crea el archivo SumadorCompletotop.vcd con el que se puede simular el funcionamiento del medio sumador.
+
+![GTK Semisumador](
+
+Por último, en digital guardamos el sumador completo en un archivo .dig en la misma carpeta donde se creará el sumador de 4 bits.
+
 
 ## Sumador de 4 bits
 
