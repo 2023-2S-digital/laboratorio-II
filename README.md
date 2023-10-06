@@ -2,6 +2,8 @@
 
 Implementación de un sumador/restador de 4 bits en Verilog.
 
+El restador se implementara de tal manera que reciba dos entradas de 4 bits cada una, en la que cada entrada representa un valor en magnitud y cuya salida sera la diferencia en magnitud de las dos entradas.
+
 En principio y con la idea/meta de reutilizar componentes ya implementados, se construyeron los siguientes módulos:
 
 ## Diseño e Implementación de un medio sumador
@@ -56,10 +58,10 @@ salidas desde la opción "Mapa de Karnaugh" o dando clic "F1".
 Al observar los mapas de Karnaugh de Cout y suma podemos determinar las ecuaciones lógicas de las salidas:
 
 ```
-Suma = (!A * B) + (A * !B) = A ⊕ B
+Suma = !A*B + A*!B = A ⊕ B
 ```
 ```
-Cout = A * B
+Cout = A*B
 ```
 
 Teniendo las ecuaciones lógicas, podemos determinar el circuito equivalente.
@@ -72,24 +74,6 @@ Cout o carrier de salida se obtiene a partir de una conjunción de las entradas,
 Cada puerta lógica es de dos entradas (A, B) y una salida.
 
 ![RTL Semisumador](images/digital_ss_RTL.png) 
-
-### Descripción en Verilog y testbench
-
-Apartir del esquemático y las ecuaciones lógicas se obtienen los archivo de verilog con la descripción en código del circuito y el testbench.  
-
-### Simulación en GTKwave
-
-Para obtener el ejecutable Mediotop.vvp se uso el siguiente comando: 
-
-```iverilog -o Mediotop.vvp Mediosumador_tb.v Mediosumador.v``` 
-
-Se corre este ejecutable para probar que pase todas las pruebas, esto con el comando: 
-
-```vvp Mediotop.vvp``` 
-
-Al hacer esto se crea el archivo Mediotop.vcd con el que se puede simular el funcionamiento del medio sumador.
-
-![GTK Semisumador](images/gtkwaveMedio.png)
 
 Por último, en digital guardamos el semisumador en un archivo .dig en la misma carpeta donde se creará el sumador.
 
@@ -133,15 +117,15 @@ Mapa Karnaugh Suma:
 Las siguientes ecuaciones lógicas:
 
 ```
-Suma = (!A * !B * CIn) + (!A * B * !CIn) + (A * !B * !CIn) + (A * B * CIn)
+Suma = !A*!B*CIn + !A*B*!CIn+ A*!B*!CIn + A*B*CIn
 
 Suma = A ⊕ (B ⊕ CIn)
 ```
 
 ```
-COut = (!A * B * CIn) + (A * !B * CIn) + (A * B * !CIn) + (A * B * CIn)
+COut = !A*B*CIn + A*!B*CIn + A*B*!CIn + A*B*CIn
 
-COut = CIn * (A ⊕ B) + A * B
+COut = CIn * (A ⊕ B) + A*B
 ```
 
 ### Esquema de conexiones (RTL)
@@ -159,27 +143,6 @@ Como se puede visualizar en el esquemático generado en Digital.
 
 ![RTL Sumador encapsulado](images/digital_s_RTL_encapsulado.png)
 
-### Descripción en Verilog y testbench
-
-Apartir del esquemático y las ecuaciones lógicas se obtienen los archivo de verilog con la descripción en código del circuito y el testbench para el sumador completo.  
-
-### Simulación en GTKwave
-
-Para obtener el ejecutable SumadorCompleto.vvp se uso el siguiente comando: 
-
-```iverilog -o SumadorCompleto.vvp SumadorCompleto_tb.v SumadorCompleto.v``` 
-
-Se corre este ejecutable para probar que pase todas las pruebas, esto con el comando: 
-
-```vvp SumadorCompleto.vvp``` 
-
-Al hacer esto se crea el archivo SumadorCompletotop.vcd con el que se puede simular el funcionamiento del medio sumador.
-
-![GTK Semisumador](
-
-Por último, en digital guardamos el sumador completo en un archivo .dig en la misma carpeta donde se creará el sumador de 4 bits.
-
-
 ## Sumador de 4 bits
 
 Con el encapsulado del sumador, podemos generar el sumador de 4 bits, con 4 sumadores de un bit, donde el sumador S0, 
@@ -192,35 +155,21 @@ se conecta a una salida Carrier, como se visualiza en el esquemático de Digital
 
 ## Restador
 
-Para el restador de 4 bits, debemos definir el minuendo y el sustraendo en el circuito, en este caso, se establece que 
-la entrada A corresponde al minuendo y la entrada B al sustraendo, de esta manera para utilizar el sumador de 4 bits en 
-la implementación del restador, primero debemos realizar sobre la entrada B el complemento a 1, luego para generar el 
-complemento a 2 en B se le suma uno al bit menos significativo. Teniendo la entrada A y el complemento a 2 de B, 
-realizamos la operación de suma desde el sumador, y de esta manera tendremos la diferencia o resto. 
+Para el restador de 4 bits, debemos definir el minuendo y el sustraendo en el circuito, en este caso, se establece que la entrada A corresponde al minuendo y la entrada B al sustraendo, de esta manera para utilizar el sumador de 4 bits en la implementacón del restador, primero debemos realizar sobre la entrada B el complemento a 1, luego para generar el complemento a 2 en B se le suma 1 al bit menos significativo. Teniendo la entrada A y el complemento a 2 de B, realizamos la operación de suma desde el sumador de 4 bits, y de esta manera tendremos la diferencia o resto. 
 
-Si el acarreo del sumador más significativo es uno, el resultado no está en complemento, pero si por el contrario, está 
-en cero, el resultado de 4 bits, se encuentra en complemento a 2 al ser un valor negativo.
+Si el acarreo del sumador del bit más significativo es 1, el resultado no esta en complemento, pero si por el contrario el acarreo esta en 0, el resultado de 4 bits se encuentra en complemento a 2 al ser un valor negativo.
 
 ## Implementación de complemento a 1
 
-Para generar el complemento a 2 del sustraendo (B), debemos tener un circuito inversor que realzará el proceso de 
-efectuar el complemento a 1 de B, por lo tanto, se utilizan 4 inversores, donde negaran cada bit de entrada.
+Para generar el complemento a 2 del sustraendo (B), debemos tener un circuito inversor que realzará el proceso de complemento a 1 sobre B, por lo tanto se utilizan 4 inversores que negaran cada bit de entrada.
 
 ![](images/Inversor.png)
 
 ## Implementación de complemento a 2
 
-Un complemento a 2 es un circuito lógico que realiza la operación de complemento a 2 de un número binario de 4 bits.
+Teniendo el circuto inversor que genera el complemento a 1, podemos efectuar de el complemento a 2 de B con 4 semisumadores en cascada, donde se asignará a una de las entradas el valor de 1, en el semisumador menos significativo, donde cada acarreo Cout de los semisumadores se conectará a una de las entradas del semisumador más significativo, excepto el acarreo del semisumador más significativo, el cual no se conectará.
 
-El circuito tiene cuatro entradas y cuatro salidas.
-
-Las entradas representan los cuatro bits del número binario y las salidas representan los cuatro bits del complemento
-a 2.
-
-Teniendo el circuito inversor que genera el complemento a 1, podemos efectuar el de complemento a 2 de B con 4 
-semisumadores en cascada, donde se asignará a una de las entradas el valor de 1, en el semisumador menos significativo, 
-donde cada acarreo Cout de los semisumadores se conectará a una de las entradas del semisumador más significativo, 
-excepto el acarreo del semisumador más significativo, el cual no se conectará.
+## Implementación de complemento a 2
 
 ### Tabla de verdad
 
@@ -272,29 +221,6 @@ Dando como resultado los siguientes mapas de Karnaugh:
 ### Ecuaciones lógicas
 
 Y las siguientes ecuaciones lógicas:
-
-```
-S0 = A0
-```
-
-```
-S1 = (!A0 * A1) + (A0 * !A1)
-
-S1 = A0 ⊕ A1
-
-```
-
-```
-S2 = (!A0 * !A1 * A2) + (A0 * !A2) + (A1 * !A2)
-```
-
-```
-S3 = (!A0 * !A1 * !A2 * A3) + (A0 * !A3) + (A1 * !A3) + (A2 * !A3)
-```
-
-```
-CO = (!A0 * !A1 * !A2 * !A3)
-``` 
 
 
 ## Implementación de un sumador/restador de 4 bits
