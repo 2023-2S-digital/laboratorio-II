@@ -182,9 +182,14 @@ Ahota conectamos las entrada B al encapsulado complemento a 2 y las salidas del 
 
 Si el acarreo de salida del sumador de 4 bits (Cout) es 1, la salida del sumador S es una palabra no complementada, y por el contrario, si Cout es 0, S se encuentra en complemento a 2. Por eso, para entregar una salida no complementada para cualquier resultado, se debe ajustar la salida cuando Cout sea 0, generando nuevamente el complemento a 2 en la salida del sumador de 4 bits, de esta manera se entregará la diferencia entre A y B de manera explicita.
 
+
 Para poder determinar si la se entrega desde el sumador de 4 bits, o debe pasar primero por el complemento a 2, es neserario un multiplexor 9-4, donde se conectaran desde las entradas la salida S del sumador de 4 bits y la salida del complemento a 2 que tiene como entradas la salida S del sumador de 4 bits, adiconlmente la entrada Cin del multiplexor 9-4 se conecta con el acarreo de salda del sumador, la cual será la señal de control, si Cin es 1, la salida C del multiplexor 9-4 conmutará con la entrada A, pero si Cin es 0, la salda C conmutara con la entrada B que es la salida en complemento a 2 del sumador.
 
+![](images/Multiplexor_9-4.png)
+
 Este proceso presenta una restricción, cuando la entrada B es 0000 sin importar el valor de A, el acarreo de salida del sumador de 4 bits es 0, pero realmente debe ser 1, indicando que la salda S es no complementada, por eso, para corregir esta respuesta incorrecta, se utilizará un multiplexor 8-4
+
+![](images/Multiplexor_8-4.png)
 
 
 ## Implementación de complemento a 2
