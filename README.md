@@ -177,7 +177,7 @@ Teniendo el semisumador de 4 bits, conectamos las salidas del inversor con las e
 
 ## Implementación de del restador
 
-Ahota conectamos las entrada B al encapsulado complemento a 2 y las salidas del complemento a 2 de B junto con las entradas de A se concectarán al sumador de 4 bits, generando una salida de 4 bits y un acarreo Cout que nos ayudará a determinar su la salida esta en complemento a 2 o no.
+Ahota conectamos las entrada B al encapsulado complemento a 2 y las salidas del complemento a 2 de B junto con las entradas de A se concectarán al sumador de 4 bits, generando una salida de 4 bits y un acarreo Cout que nos ayudará a determinar su la salida esta en complemento a 2 o no. 
 
 ## Implementación de complemento a 2
 
