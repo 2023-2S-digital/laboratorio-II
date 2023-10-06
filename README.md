@@ -87,7 +87,7 @@ Se corre este ejecutable para probar que pase todas las pruebas, esto con el com
 
 ```vvp Mediotop.vvp``` 
 
-Al hacer esto se crea el archivo ~Mediotop.vcd~ con el que se puede simular el funcionamiento del medio sumador.
+Al hacer esto se crea el archivo -Mediotop.vcd- con el que se puede simular el funcionamiento del medio sumador.
 
 ![GTK Semisumador](images/gtkwaveMedio.png)
 
