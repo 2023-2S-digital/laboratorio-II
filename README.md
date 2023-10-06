@@ -5,7 +5,7 @@ Implementación de un sumador/restador de 4 bits en Verilog.
 El restador se implementará de tal manera que reciba dos entradas de 4 bits cada una, donde cada entrada representa un valor en magnitud y cuya salida será la diferencia en magnitud de las dos entradas.
 
 En principio y con la idea/meta de reutilizar componentes ya implementados, se construyeron los siguientes módulos:
-
+ 
 ## Diseño e Implementación de un medio sumador 
 
 Un circuito medio sumador es un circuito lógico que realiza la suma de dos entradas de un bit y devuelve el resultado en 
