@@ -169,6 +169,16 @@ Para generar el complemento a 2 del sustraendo (B), debemos tener un circuito in
 
 Teniendo el circuto inversor que genera el complemento a 1, podemos efectuar de el complemento a 2 de B con 4 semisumadores en cascada, donde se asignará a una de las entradas el valor de 1, en el semisumador menos significativo, donde cada acarreo Cout de los semisumadores se conectará a una de las entradas del semisumador más significativo, excepto el acarreo del semisumador más significativo, el cual no se conectará.
 
+![](images/semisumador_nibble.png)
+
+Teniendo el semisumador de 4 bits, conectamos las salidas del inversor con las entradas del semisumador.
+
+![](images/COMPLEMENTO_A_2.png)
+
+## Implementación de del restador
+
+Ahota conectamos las entrada B al encapsulado complemento a 2 y las salidas del complemento a 2 de B junto con las entradas de A se concectarán al sumador de 4 bits, generando una salida de 4 bits y un acarreo Cout que nos ayudará a determinar su la salida esta en complemento a 2 o no.
+
 ## Implementación de complemento a 2
 
 ### Tabla de verdad
