@@ -75,9 +75,11 @@ Cada puerta lógica es de dos entradas (A, B) y una salida.
 
 ### Descripción en Verilog y testbench
 
-Apartir del esquemático y las ecuaciones lógicas se obtienen los archivo de verilog con la descripción del circuito y el testbench.  
+Apartir del esquemático y las ecuaciones lógicas se obtienen los archivo de verilog con la descripción en código del circuito y el testbench.  
 
+### Simulación en GTKwave
 
+Para obtener el ejecutable 
 
 Por último, en digital guardamos el semisumador en un archivo .dig en la misma carpeta donde se creará el sumador.
 
