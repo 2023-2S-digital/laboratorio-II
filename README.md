@@ -6,7 +6,7 @@ El restador se implementara de tal manera que reciba dos entradas de 4 bits cada
 
 En principio y con la idea/meta de reutilizar componentes ya implementados, se construyeron los siguientes módulos:
 
-## Diseño e Implementación de un medio sumador
+## Diseño e Implementación de un medio sumador 
 
 Un circuito medio sumador es un circuito lógico que realiza la suma de dos entradas de un bit y devuelve el resultado en 
 dos salidas, un bit de suma y un bit de acarreo.  
