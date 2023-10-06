@@ -155,19 +155,28 @@ se conecta a una salida Carrier, como se visualiza en el esquemático de Digital
 
 ## Restador
 
-Para el restador de 4 bits, debemos definir el minuendo y el sustraendo en el circuito, en este caso, se establece que la entrada A corresponde al minuendo y la entrada B al sustraendo, de esta manera para utilizar el sumador de 4 bits en la implementacón del restador, primero debemos realizar sobre la entrada B el complemento a 1, luego para generar el complemento a 2 en B se le suma 1 al bit menos significativo. Teniendo la entrada A y el complemento a 2 de B, realizamos la operación de suma desde el sumador de 4 bits, y de esta manera tendremos la diferencia o resto. 
+Para el restador de 4 bits, debemos definir el minuendo y el sustraendo en el circuito, en este caso, se establece que 
+la entrada A corresponde al minuendo y la entrada B al sustraendo, de esta manera para utilizar el sumador de 4 bits en 
+la implementación del restador, primero debemos realizar sobre la entrada B el complemento a 1, luego para generar el 
+complemento a 2 en B se le suma 1 al bit menos significativo. Teniendo la entrada A y el complemento a 2 de B, 
+realizamos la operación de suma desde el sumador de 4 bits, y de esta manera tendremos la diferencia o resto. 
 
-Si el acarreo del sumador del bit más significativo es 1, el resultado no esta en complemento, pero si por el contrario el acarreo esta en 0, el resultado de 4 bits se encuentra en complemento a 2 al ser un valor negativo.
+Si el acarreo del sumador del bit más significativo es 1, el resultado no está en complemento, pero si, por el contrario,
+el acarreo está en 0, el resultado de 4 bits se encuentra en complemento a 2 al ser un valor negativo.
 
 ## Implementación de complemento a 1
 
-Para generar el complemento a 2 del sustraendo (B), debemos tener un circuito inversor que realzará el proceso de complemento a 1 sobre B, por lo tanto se utilizan 4 inversores que negaran cada bit de entrada.
+Para generar el complemento a 2 del sustraendo (B), debemos tener un circuito inversor que realzará el proceso de 
+complemento a 1 sobre B, por lo tanto, se utilizan 4 inversores que negaran cada bit de entrada.
 
 ![](images/Inversor.png)
 
 ## Implementación de complemento a 2
 
-Teniendo el circuto inversor que genera el complemento a 1, podemos efectuar de el complemento a 2 de B con 4 semisumadores en cascada, donde se asignará a una de las entradas el valor de 1, en el semisumador menos significativo, donde cada acarreo Cout de los semisumadores se conectará a una de las entradas del semisumador más significativo, excepto el acarreo del semisumador más significativo, el cual no se conectará.
+Teniendo el circuito inversor que genera el complemento a 1, podemos efectuar el complemento a 2 de B con 4 semisumadores 
+en cascada, donde se asignará a una de las entradas el valor de 1, en el semisumador menos significativo, donde cada 
+acarreo Cout de los semisumadores se conectará a una de las entradas del semisumador más significativo, excepto el 
+acarreo del semisumador más significativo, el cual no se conectará.
 
 ![](images/semisumador_nibble.png)
 
@@ -225,22 +234,40 @@ Dando como resultado los siguientes mapas de Karnaugh:
 
 ## Implementación de del restador
 
-Ahora conectamos las entrada B al encapsulado complemento a 2 y las salidas del complemento a 2 de B junto con las entradas de A se concectarán al sumador de 4 bits, generando una salida de 4 bits y un acarreo Cout que nos ayudará a determinar su la salida esta en complemento a 2 o no. 
+Ahora conectamos la entrada B al encapsulado complemento a 2 y las salidas del complemento a 2 de B junto con las 
+entradas de A se conectarán al sumador de 4 bits, generando una salida de 4 bits y un acarreo Cout que nos ayudará a 
+determinar su la salida está en complemento a 2 o no. 
 
 ![](images/restador.png)
 
-Si el acarreo de salida del sumador de 4 bits (Cout) es 1, la salida del sumador S es una palabra no complementada, y por el contrario, si Cout es 0, S se encuentra en complemento a 2. Por eso, para entregar una salida no complementada para cualquier resultado, se debe ajustar la salida cuando Cout sea 0, generando nuevamente el complemento a 2 en la salida del sumador de 4 bits, de esta manera se entregará la diferencia entre A y B de manera explicita.
+Si el acarreo de salida del sumador de 4 bits (Cout) es 1, la salida del sumador S es una palabra no complementada, y, 
+por el contrario, si Cout es 0, S se encuentra en complemento a 2. Por eso, para entregar una salida no complementada 
+para cualquier resultado, se debe ajustar la salida cuando Cout sea 0, generando nuevamente el complemento a 2 en la 
+salida del sumador de 4 bits, de esta manera se entregará la diferencia entre A y B de manera explícita.
 
 
-Para poder determinar si la se entrega desde el sumador de 4 bits, o debe pasar primero por el complemento a 2, es neserario un multiplexor 9-4, donde se conectaran desde las entradas la salida S del sumador de 4 bits y la salida del complemento a 2 que tiene como entradas la salida S del sumador de 4 bits, adiconlmente la entrada Cin del multiplexor 9-4 se conecta con el acarreo de salda del sumador, la cual será la señal de control, si Cin es 1, la salida C del multiplexor 9-4 conmutará con la entrada A, pero si Cin es 0, la salda C conmutara con la entrada B que es la salida en complemento a 2 del sumador.
+Para poder determinar si la se entrega desde el sumador de 4 bits, o debe pasar primero por el complemento a 2, es 
+necesario un multiplexor 9-4, donde se conectaran desde las entradas la salida S del sumador de 4 bits y la salida del 
+complemento a 2 que tiene como entradas la salida S del sumador de 4 bits, adicionalmente la entrada Cin del multiplexor 
+9-4 se conecta con el acarreo de salida del sumador, la cual será la señal de control, si Cin es 1, la salida C del 
+multiplexor 9-4 conmutará con la entrada A, pero si Cin es 0, la salda C conmutará con la entrada B que es la salida en 
+complemento a 2 del sumador.
 
 ![](images/Multiplexor_9-4.png)
 
-Este proceso presenta una restricción, cuando la entrada B es 0000 sin importar el valor de A, el acarreo de salida del sumador de 4 bits es 0, pero realmente debe ser 1, indicando que la salida S es no complementada, por eso, para corregir esta respuesta incorrecta, primero se utilizará un multiplexor 8-4, que se conectará con las entradas A y B, donde B, dentro del multiplexor estará conectado a una puerta NOR, cuya salida de la puerta NOR actuará como señal de control; en este caso, si B es 0000, la salida del multiplexor conmutará con la entrada A, de lo contrario, no conmutará y su salida sera 0000.
+Este proceso presenta una restricción, cuando la entrada B es 0000 sin importar el valor de A, el acarreo de salida del 
+sumador de 4 bits es 0, pero realmente debe ser 1, indicando que la salida S es no complementada, por eso, para corregir 
+esta respuesta incorrecta, primero se utilizará un multiplexor 8-4, que se conectará con las entradas A y B, donde B, 
+dentro del multiplexor estará conectado a una puerta NOR, cuya salida de la puerta NOR actuará como señal de control; 
+en este caso, si B es 0000, la salida del multiplexor conmutará con la entrada A, de lo contrario, no conmutará y su 
+salida será 0000.
 
 ![](images/Multiplexor_8-4.png)
 
-Por último, se utilizará un multiplexor 9-4 que tendrá como entradas, las salidas de los multiplexores 9-4 y 8-4, y su señal de control sera la salida de una puerta NOR que tendrá como entrada la señal B, en este caso si la señal de control será 1 cuando B sea 0000, permitiendo que la salida S conmutará con el multiplexor 8-4, de lo contrario conmutará con la salida delmultiplexor 9-4, corrigiendo así la restricción del acarreo de salida del sumador de 4 bits.
+Por último, se utilizará un multiplexor 9-4 que tendrá como entradas, las salidas de los multiplexores 9-4 y 8-4, y su 
+señal de control será la salida de una puerta NOR que tendrá como entrada la señal B, en este caso si la señal de 
+control será 1 cuando B sea 0000, permitiendo que la salida S conmutará con el multiplexor 8-4, de lo contrario 
+conmutará con la salida del multiplexor 9-4, corrigiendo así la restricción del acarreo de salida del sumador de 4 bits.
 
 ![](images/Restador_Final.png)
 
