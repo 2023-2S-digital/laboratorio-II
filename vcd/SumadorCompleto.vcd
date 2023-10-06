@@ -1,0 +1,96 @@
+$date
+	Fri Oct  6 14:23:16 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module SumadorCompleto_tb $end
+$var wire 1 ! St $end
+$var wire 1 " Cout $end
+$var reg 1 # A $end
+$var reg 1 $ B $end
+$var reg 1 % Cin $end
+$var integer 32 & i [31:0] $end
+$scope module SumadorCompleto0 $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 % Cin $end
+$var wire 1 " Cout $end
+$var wire 1 ' s2 $end
+$var wire 1 ( s1 $end
+$var wire 1 ) s0 $end
+$var wire 1 ! St $end
+$scope module Mediosumador_i0 $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 ( Cout $end
+$var wire 1 ) Suma $end
+$upscope $end
+$scope module Mediosumador_i1 $end
+$var wire 1 ) A $end
+$var wire 1 % B $end
+$var wire 1 ' Cout $end
+$var wire 1 ! Suma $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0)
+0(
+0'
+b0 &
+0%
+0$
+0#
+0"
+0!
+$end
+#10000
+1!
+1)
+1$
+b1 &
+#20000
+0$
+1#
+b10 &
+#30000
+0!
+1"
+0)
+1(
+1$
+b11 &
+#40000
+0"
+0(
+1!
+0$
+0#
+1%
+b100 &
+#50000
+1"
+0!
+1'
+1)
+1$
+b101 &
+#60000
+0$
+1#
+b110 &
+#70000
+1!
+0'
+0)
+1(
+1$
+b111 &
+#80000
+b1000 &
