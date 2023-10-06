@@ -73,6 +73,12 @@ Cada puerta lógica es de dos entradas (A, B) y una salida.
 
 ![RTL Semisumador](images/digital_ss_RTL.png) 
 
+### Descripción en Verilog y testbench
+
+Apartir del esquemático y las ecuaciones lógicas se obtienen los archivo de verilog con la descripción del circuito y el testbench.  
+
+
+
 Por último, en digital guardamos el semisumador en un archivo .dig en la misma carpeta donde se creará el sumador.
 
 ## Implementación de un sumador completo
