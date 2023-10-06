@@ -278,12 +278,26 @@ Para la implementación de las simulaciones en verilog primero se añadió un co
 
 Este test se edita y se le añaden todos los casos de prueba obtenidos de las tablas de verdad de cada simulación. Luego de que se realiza esto se exporta el archivo a verilog directamente desde Digital, al hacer esto se generan 2 archivos. Uno de los archivos contiene la descripción en código de la simulación que se realizó, el otro contiene en código todoso los casos de prueba que se obtuvieron previamente. A este último se le debe hacer una modificación con el fin de que luego se genere el archivo usado para obtener las formas de onda en GTkwave. Esta modificación se realiza al final del código. 
 
-```  initial
+```
+initial
   begin
-    $dumpfile("SumadorRestador.vcd");
-    $dumpvars(0, SumadorRestador_tb);
-  end```
+    $dumpfile("Simulación.vcd");
+    $dumpvars(0, Simulación tb);
+  end
+```
+Luego de tener los archivos Simulación.v y Simulación_tb.v desde la terminal se ejecuta el siguiente comando: 
 
+``` iverilog -o Simulación.vvp Simulación_tb.v Simulación.v ```
+
+De aquí se crea el ejecutable Simulación.vvp, con esto se ejecuta otro comando para iniciar la simulación y generar los resultados junto con el archivo Simulación.vcd.
+
+``` vvp Simulación.vvp ```
+
+Con esto se pueden ver las formas de onda con GTKwave usando el comando:
+
+``` gtkwave Simulación.vcd ```
+
+Los archivos Verilog, Testbench, ejecutables y visualizadores de GTKwave se encuentran en las carpetas: 
 
 
 
