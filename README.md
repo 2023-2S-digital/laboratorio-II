@@ -177,7 +177,7 @@ Teniendo el semisumador de 4 bits, conectamos las salidas del inversor con las e
 
 ## Implementación de del restador
 
-Ahota conectamos las entrada B al encapsulado complemento a 2 y las salidas del complemento a 2 de B junto con las entradas de A se concectarán al sumador de 4 bits, generando una salida de 4 bits y un acarreo Cout que nos ayudará a determinar su la salida esta en complemento a 2 o no. 
+Ahora conectamos las entrada B al encapsulado complemento a 2 y las salidas del complemento a 2 de B junto con las entradas de A se concectarán al sumador de 4 bits, generando una salida de 4 bits y un acarreo Cout que nos ayudará a determinar su la salida esta en complemento a 2 o no. 
 ![](images/restador.png)
 
 Si el acarreo de salida del sumador de 4 bits (Cout) es 1, la salida del sumador S es una palabra no complementada, y por el contrario, si Cout es 0, S se encuentra en complemento a 2. Por eso, para entregar una salida no complementada para cualquier resultado, se debe ajustar la salida cuando Cout sea 0, generando nuevamente el complemento a 2 en la salida del sumador de 4 bits, de esta manera se entregará la diferencia entre A y B de manera explicita.
