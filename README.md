@@ -79,7 +79,17 @@ Apartir del esquemático y las ecuaciones lógicas se obtienen los archivo de ve
 
 ### Simulación en GTKwave
 
-Para obtener el ejecutable 
+Para obtener el ejecutable Mediotop.vvp se uso el siguiente comando: 
+
+```iverilog -o Mediotop.vvp Mediosumador_tb.v Mediosumador.v``` 
+
+Se corre este ejecutable para probar que pase todas las pruebas, esto con el comando: 
+
+```vvp Mediotop.vvp``` 
+
+Al hacer esto se crea el archivo Mediotop.vcd con el que se puede simular el funcionamiento del medio sumador.
+
+![GTK Semisumador](images/gtkwaveMedio.png)
 
 Por último, en digital guardamos el semisumador en un archivo .dig en la misma carpeta donde se creará el sumador.
 
