@@ -272,7 +272,17 @@ conmutará con la salida del multiplexor 9-4, corrigiendo así la restricción d
 
 
 ## Implementación en verilog
+Para la implementación de las simulaciones en verilog primero se añadió un componente extra circuito en Digital que es el test. 
 
+![Test](images/Test.png)
+
+Este test se edita y se le añaden todos los casos de prueba obtenidos de las tablas de verdad de cada simulación. Luego de que se realiza esto se exporta el archivo a verilog directamente desde Digital, al hacer esto se generan 2 archivos. Uno de los archivos contiene la descripción en código de la simulación que se realizó, el otro contiene en código todoso los casos de prueba que se obtuvieron previamente. A este último se le debe hacer una modificación con el fin de que luego se genere el archivo usado para obtener las formas de onda en GTkwave. Esta modificación se realiza al final del código. 
+
+```  initial
+  begin
+    $dumpfile("SumadorRestador.vcd");
+    $dumpvars(0, SumadorRestador_tb);
+  end```
 
 
 
