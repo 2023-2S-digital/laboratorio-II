@@ -191,7 +191,9 @@ Este proceso presenta una restricción, cuando la entrada B es 0000 sin importar
 
 ![](images/Multiplexor_8-4.png)
 
+Por último, se utilizará un multiplexor 9-4 que tendrá como entradas, las salidas de los multiplexores 9-4 y 8-4, y su señal de control sera la salida de una puerta NOR que tendrá como entrada la señal B, en este caso si la señal de control será 1 cuando B sea 0000, permitiendo que la salida S conmutará con el multiplexor 8-4, de lo contrario conmutará con la salida delmultiplexor 9-4, corrigiendo así la restricción del acarreo de salida del sumador de 4 bits.
 
+![](images/Restador_Final.png)
 
 
 ## Implementación de complemento a 2
