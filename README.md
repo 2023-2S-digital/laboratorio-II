@@ -331,7 +331,7 @@ Con esto se pueden ver las formas de onda con GTKWave usando el comando:
 
 ``` gtkwave Simulación.vcd ```
 
-Los archivos Verilog, TestBench, ejecutables y visualizadores de GTKWave se encuentran en las carpetas: 
+Los archivos obtenidos se encuentran en las carpetas [Verilog](https://github.com/2023-2S-digital/laboratorio-II/tree/main/Verilog), TestBench, ejecutables y visualizadores de GTKWave se encuentran en las carpetas: 
 
 ## Participantes
 
