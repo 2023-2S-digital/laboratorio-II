@@ -2,7 +2,31 @@
 
 Implementación de un sumador/restador de 4 bits en Verilog.
 
-El restador se implementará de tal manera que reciba dos entradas de 4 bits cada una, donde cada entrada representa un valor en magnitud y cuya salida será la diferencia en magnitud de las dos entradas.
+## Contenido
+
+- [Diseño e Implementación de un medio sumador](#diseño-e-implementación-de-un-medio-sumador)
+  - [Tabla de verdad medio sumador](#tabla-de-verdad-medio-sumador)
+  - [Mapa de Karnaugh medio sumador](#mapa-de-karnaugh-medio-sumador)
+  - [Ecuaciones lógicas medio sumador](#ecuaciones-lógicas-medio-sumador)
+  - [Esquema de conexiones (RTL) medio sumador](#esquema-de-conexiones-rtl-medio-sumador)
+- [Diseño e Implementación de un sumador completo](#diseño-e-implementación-de-un-sumador-completo)
+  - [Tabla de verdad sumador completo](#tabla-de-verdad-sumador-completo)
+  - [Mapa de Karnaugh sumador completo](#mapa-de-karnaugh-sumador-completo)
+  - [Ecuaciones lógicas sumador completo](#ecuaciones-lógicas-sumador-completo)
+  - [Esquema de conexiones (RTL) sumador completo](#esquema-de-conexiones-rtl-sumador-completo)
+- [Sumador de 4 bits](#sumador-de-4-bits)
+- [Restador](#restador)
+  - [Implementación de complemento a 1](#implementación-de-complemento-a-1)
+  - [Implementación de complemento a 2](#implementación-de-complemento-a-2)
+    - [Tabla de verdad complemento a 2](#tabla-de-verdad-complemento-a-2)
+    - [Mapa de Karnaugh complemento a 2](#mapa-de-karnaugh-complemento-a-2)
+  - [Implementación del restador](#implementación-del-restador)
+- [Implementación en Verilog](#implementación-en-verilog)
+- [Participantes](#participantes)
+- [Licencia](#licencia)
+
+El restador se implementará de tal manera que reciba dos entradas de 4 bits cada una, donde cada entrada representa un 
+valor en magnitud y cuya salida será la diferencia en magnitud de las dos entradas.
 
 En principio y con la idea/meta de reutilizar componentes ya implementados, se construyeron los siguientes módulos:
  
@@ -11,7 +35,7 @@ En principio y con la idea/meta de reutilizar componentes ya implementados, se c
 Un circuito medio sumador es un circuito lógico que realiza la suma de dos entradas de un bit y devuelve el resultado en 
 dos salidas, un bit de suma y un bit de acarreo.  
  
-### Tabla de verdad 
+### Tabla de verdad medio sumador
 
 Para implementar un medio sumador, se utilizó la siguiente tabla de verdad:
 
@@ -35,7 +59,7 @@ Luego, ajustamos las entradas como A y B y las salidas como Cout y Suma, tal com
 
 ![Tabla de verdad semisumador](images/digital_ss_tv.png)
 
-### Mapa de Karnaugh
+### Mapa de Karnaugh medio sumador
 
 Para determinar la mínima expresión de la función lógica de las salidas acarreo y suma se realiza el mapa de Karnaugh, 
 dando como resultado los siguientes mapas de Karnaugh:
@@ -53,7 +77,7 @@ salidas desde la opción "Mapa de Karnaugh" o dando clic "F1".
 
 ![Mapa de Karnaugh Digital](images/digital_mapa_Karnaugh.png)
 
-### Ecuaciones lógicas
+### Ecuaciones lógicas medio sumador
 
 Al observar los mapas de Karnaugh de Cout y suma podemos determinar las ecuaciones lógicas de las salidas:
 
@@ -66,7 +90,7 @@ Cout = A*B
 
 Teniendo las ecuaciones lógicas, podemos determinar el circuito equivalente.
 
-### Esquema de conexiones (RTL)
+### Esquema de conexiones (RTL) medio sumador
 
 Como la suma es el resultado de una disyunción exclusiva entre las entradas, la puerta equivalente es un XOR y para el 
 Cout o carrier de salida se obtiene a partir de una conjunción de las entradas, la puerta equivalente es un AND. 
@@ -77,7 +101,7 @@ Cada puerta lógica es de dos entradas (A, B) y una salida.
 
 Por último, en digital guardamos el semisumador en un archivo .dig en la misma carpeta donde se creará el sumador.
 
-## Implementación de un sumador completo
+## Diseño e Implementación de un sumador completo
 
 Un sumador completo es un circuito lógico que realiza la suma de dos entradas y un acarreo de entrada, cada una de un 
 bit, generando dos salidas, una salida de suma y otra de acarreo.
@@ -85,7 +109,7 @@ bit, generando dos salidas, una salida de suma y otra de acarreo.
 Las entradas representan los dos bits a sumar y el acarreo de entrada y las salidas representan el resultado de la suma 
 y el acarreo de salida.
 
-### Tabla de verdad
+### Tabla de verdad sumador completo
 
 Para implementar un sumador completo, se utilizó la siguiente tabla de verdad:
 
@@ -100,7 +124,7 @@ Para implementar un sumador completo, se utilizó la siguiente tabla de verdad:
 | 1             | 1             | 0            | 1             | 0             |
 | 1             | 1             | 1            | 1             | 1             |
 
-### Mapa de Karnaugh
+### Mapa de Karnaugh sumador completo
 
 Desde Digital podemos generar el mapa de Karnaugh a partir de la tabla de verdad:
 
@@ -112,7 +136,7 @@ Mapa Karnaugh Suma:
 
 ![Mapa Karnaugh Suma](/images/digital_s_mapa_suma.png)
 
-### Ecuaciones lógicas
+### Ecuaciones lógicas sumador completo
 
 Las siguientes ecuaciones lógicas:
 
@@ -128,7 +152,7 @@ COut = !A*B*CIn + A*!B*CIn + A*B*!CIn + A*B*CIn
 COut = CIn * (A ⊕ B) + A*B
 ```
 
-### Esquema de conexiones (RTL)
+### Esquema de conexiones (RTL) sumador completo
 
 De acuerdo a las ecuaciones lógicas que relacionan las entradas con cada una de las salidas, se realiza el esquema de 
 conexiones del sumador, en este caso se requieren dos puertas AND, dos puertas XOR y una puerta OR, como se visualiza 
@@ -164,18 +188,18 @@ realizamos la operación de suma desde el sumador de 4 bits, y de esta manera te
 Si el acarreo del sumador del bit más significativo es 1, el resultado no está en complemento, si por el contrario,
 el acarreo está en 0, el resultado de 4 bits se encuentra en complemento a 2 al ser un valor negativo.
 
-## Implementación de complemento a 1
+### Implementación de complemento a 1
 
 Para generar el complemento a 2 del sustraendo (B), debemos tener un circuito inversor que realzará el proceso de 
 complemento a 1 sobre B, por lo tanto, se utilizan 4 inversores que negarán cada bit de entrada.
 
 ![](images/Inversor.png)
 
-## Implementación de complemento a 2
+### Implementación de complemento a 2
 
-Teniendo el circuito inversor que genera el complemento a 1, podemos efectuar el complemento a 2 de B con 4 semisumadores 
-en cascada, donde se asignará a una de las entradas el valor de 1 en el semisumador menos significativo, cada 
-acarreo Cout de los semisumadores se conectará a una de las entradas del semisumador más significativo, excepto el 
+Teniendo el circuito inversor que genera el complemento a 1, podemos efectuar el complemento a 2 de B con 4 
+semisumadores en cascada, donde se asignará a una de las entradas el valor de 1 en el semisumador menos significativo, 
+cada acarreo Cout de los semisumadores se conectará a una de las entradas del semisumador más significativo, excepto el 
 acarreo del semisumador más significativo, el cual no se conectará.
 
 ![](images/semisumador_nibble.png)
@@ -184,7 +208,7 @@ Teniendo el semisumador de 4 bits, conectamos las salidas del inversor con las e
 
 ![](images/COMPLEMENTO_A_2.png)
 
-### Tabla de verdad
+#### Tabla de verdad complemento a 2
 
 Para implementar el complemento a 2, se utilizó la siguiente tabla de verdad:
 
@@ -207,7 +231,7 @@ Para implementar el complemento a 2, se utilizó la siguiente tabla de verdad:
 | 1              | 1              | 1              | 0              | 1               | 0               | 0               | 1               | 0               |
 | 1              | 1              | 1              | 1              | 1               | 0               | 0               | 0               | 0               |
 
-### Mapa de Karnaugh
+#### Mapa de Karnaugh complemento a 2
 
 Dando como resultado los siguientes mapas de Karnaugh:
 
@@ -232,7 +256,7 @@ Dando como resultado los siguientes mapas de Karnaugh:
 ![Mapa Karnaugh Co](images/digital_c2_mapa_co.png)
 
 
-## Implementación de del restador
+## Implementación del restador
 
 Ahora conectamos la entrada B al encapsulado complemento a 2 y las salidas del complemento a 2 de B junto con las 
 entradas de A se conectarán al sumador de 4 bits, generando una salida de 4 bits y un acarreo Cout que nos ayudará a 
@@ -250,14 +274,15 @@ Para poder determinar si la se entrega desde el sumador de 4 bits, o debe pasar 
 necesario un multiplexor 9-4, donde se conectaran desde las entradas la salida S del sumador de 4 bits y la salida del 
 complemento a 2 que tiene como entradas la salida S del sumador, adicionalmente la entrada Cin del multiplexor 
 9-4 se conecta con el acarreo de salida del sumador, que será la señal de control, si Cin es 1, la salida C del 
-multiplexor 9-4 conmutará con la entrada A, pero si Cin es 0, la salida C conmutará con la entrada B, que es la salida en 
-complemento a 2 del sumador.
+multiplexor 9-4 conmutará con la entrada A, pero si Cin es 0, la salida C conmutará con la entrada B, que es la salida 
+en complemento a 2 del sumador.
 
 ![](images/Multiplexor_9-4.png)
 
 Este proceso presenta una restricción, cuando la entrada B es 0000 sin importar el valor de A, el acarreo de salida del 
 sumador de 4 bits es 0, pero realmente debe ser 1, indicando que la salida S es no complementada, por eso, para corregir 
-esta respuesta incorrecta, primero se utilizará un multiplexor 8-4, que se conectará con las entradas A y B, donde B estará conectado a una puerta NOR interna del multiplexor, cuya salida de la puerta NOR actuará como señal de control; 
+esta respuesta incorrecta, primero se utilizará un multiplexor 8-4, que se conectará con las entradas A y B, donde B 
+estará conectado a una puerta NOR interna del multiplexor, cuya salida de la puerta NOR actuará como señal de control; 
 en este caso, si B es 0000, la salida del multiplexor conmutará con la entrada A, de lo contrario no conmutará y su 
 salida será 0000.
 
@@ -271,33 +296,49 @@ conmutará con la salida del multiplexor 9-4, corrigiendo así la restricción d
 ![](images/Restador_Final.png)
 
 
-## Implementación en verilog
-Para la implementación de las simulaciones en verilog primero se añadió un componente extra circuito en Digital que es el test. 
+## Implementación en Verilog
+
+Para la implementación de las simulaciones en verilog primero se añadió un componente extra circuito en Digital que es 
+el test. 
 
 ![Test](images/Test.png)
 
-Este test se edita y se le añaden todos los casos de prueba obtenidos de las tablas de verdad de cada simulación. Luego de que se realiza esto se exporta el archivo a verilog directamente desde Digital, al hacer esto se generan 2 archivos. Uno de los archivos contiene la descripción en código de la simulación que se realizó, el otro contiene en código todoso los casos de prueba que se obtuvieron previamente. A este último se le debe hacer una modificación con el fin de que luego se genere el archivo usado para obtener las formas de onda en GTkwave. Esta modificación se realiza al final del código. 
+Este test se edita y se le añaden todos los casos de prueba obtenidos de las tablas de verdad de cada simulación. Luego 
+de que se realiza esto se exporta el archivo a verilog directamente desde Digital, al hacer esto se generan 2 archivos. 
+Uno de los archivos contiene la descripción en código de la simulación que se realizó, el otro contiene en código todos 
+los casos de prueba que se obtuvieron previamente. A este último se le debe hacer una modificación con el fin de que 
+luego se genere el archivo usado para obtener las formas de onda en GTKWave. Esta modificación se realiza al final del 
+código. 
 
 ```
 initial
   begin
     $dumpfile("Simulación.vcd");
-    $dumpvars(0, Simulación tb);
+    $dumpvars(0, Simulación_tb);
   end
 ```
-Luego de tener los archivos Simulación.v y Simulación_tb.v desde la terminal se ejecuta el siguiente comando: 
+
+Luego de tener los archivos `Simulación.v` y `Simulación_tb.v` desde la terminal se ejecuta el siguiente comando: 
 
 ``` iverilog -o Simulación.vvp Simulación_tb.v Simulación.v ```
 
-De aquí se crea el ejecutable Simulación.vvp, con esto se ejecuta otro comando para iniciar la simulación y generar los resultados junto con el archivo Simulación.vcd.
+De aquí se crea el ejecutable `Simulación.vvp`, con esto se ejecuta otro comando para iniciar la simulación y generar 
+los resultados junto con el archivo `Simulación.vcd`.
 
 ``` vvp Simulación.vvp ```
 
-Con esto se pueden ver las formas de onda con GTKwave usando el comando:
+Con esto se pueden ver las formas de onda con GTKWave usando el comando:
 
 ``` gtkwave Simulación.vcd ```
 
-Los archivos Verilog, Testbench, ejecutables y visualizadores de GTKwave se encuentran en las carpetas: 
+Los archivos Verilog, TestBench, ejecutables y visualizadores de GTKWave se encuentran en las carpetas: 
 
+## Participantes
 
+- [Alvaro Arturo Montenegro Silva](https://github.com/aamontenegros)
+- [Juan Manuel Rojas Luna](https://github.com/JuanLunaG)
+- [Juan David Vega Avila](https://github.com/JuanD272)
 
+## Licencia
+
+GNU General Public License v3.0. Consulte el [Archivo de licencia](LICENSE) para obtener más información.
