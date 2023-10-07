@@ -331,21 +331,27 @@ Con esto se pueden ver las formas de onda con GTKWave usando el comando:
 
 ``` gtkwave Simulación.vcd ```
 
-Los archivos obtenidos se encuentran en las carpetas [Verilog](https://github.com/2023-2S-digital/laboratorio-II/tree/main/Verilog), [TestBench](https://github.com/2023-2S-digital/laboratorio-II/tree/main/Testbench), [ejecutables](https://github.com/2023-2S-digital/laboratorio-II/tree/main/vvp) y [visualizadores de GTKWave](https://github.com/2023-2S-digital/laboratorio-II/tree/main/vcd) 
+Los archivos obtenidos se encuentran en las carpetas [Verilog](Verilog), [TestBench](Testbench), [ejecutables](vvp) y 
+[visualizadores de GTKWave](vcd) 
 
-Para corroborar el correcto funcionamiento de los modelos y comprender su comportamiento se realizaron las simmulaciones de las formas de onda para los modelos prinicipales. El primero fue el medio sumador.
+Para corroborar el correcto funcionamiento de los modelos y comprender su comportamiento se realizaron las simulaciones 
+de las formas de onda para los modelos principales. El primero fue el medio sumador.
 
 ![MedioSumador](images/MedioSumador.png)
 
-Habiendo comprobado que el medio sumador funciona correctamente con las formas de onda se obtiene la misma simulación para el sumador completo. 
+Habiendo comprobado que el medio sumador funciona correctamente con las formas de onda se obtiene la misma simulación 
+para el sumador completo. 
 
 ![SumadorCompleto](images/SumadorCompleto.png)
 
-A partir del sumador completo se obtiene el sumador de 4 bits por lo que este es el siguiente circuito del que se creó la simulación de las formas de onda. 
+A partir del sumador completo se obtiene el sumador de 4 bits por lo que este es el siguiente circuito del que se creó 
+la simulación de las formas de onda. 
 
 ![Sumador4Bits](images/Sumador4Bits.png)
 
-Finalmente el objetivo de esta práctica era obtener el sumador restador, el cual tiene como base de funcionamiento todos los anteriores modelos; luego de haberse comprobado que todos tienen el comportamiento esperado y correcto; se obtiene la simulación de la forma de onda de este. 
+Finalmente, el objetivo de esta práctica era obtener el sumador restador, el cual tiene como base de funcionamiento 
+todos los anteriores modelos; luego de haberse comprobado que todos tienen el comportamiento esperado y correcto; se 
+obtiene la simulación de la forma de onda de este. 
 
 ![SumadorRestador](images/SumadorRestador.png)
 
